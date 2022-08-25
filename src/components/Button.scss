@@ -1,0 +1,67 @@
+
+
+.button {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 1rem 0rem;
+
+    position: relative;
+    font-weight: normal;
+    font-size: medium;
+    text-align: center;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    transition: opacity 1s ease-in-out;
+    background-color: hsl(233, 39%, 22%);
+    box-shadow: hsl(233, 39%, 17%) 0px 7px 29px 0px;
+    z-index: 0;
+
+    .border {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      
+      background-color: hsl(233, 39%, 37%);
+      width: 200%;
+      height: 50%;
+
+      animation-name: rotater;
+      animation-duration: 2s;
+      animation-iteration-count: infinite;
+      transform-origin: center;
+      animation-timing-function: linear;
+      z-index: -1;
+    }
+
+    .inner {
+        -webkit-user-select: none; /* Safari */        
+        -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* IE10+/Edge */
+        user-select: none; /* Standard */
+
+        // padding: 0.5rem;
+        box-sizing: border-box;
+        margin: 2px;
+        height: 100%;
+        width: calc(100% - 4px);
+        flex-grow: 1;
+        background-color: hsl(233, 39%, 27%);
+        cursor: pointer;
+    }
+
+    @keyframes rotater {
+      from {transform: translate(-50%, -50%) rotate(0deg);}
+      45% {transform: translate(-50%, -50%) rotate(70deg);}
+      55% {transform: translate(-50%, -50%) rotate(110deg);}
+      to {transform: translate(-50%, -50%) rotate(180deg);}
+    }
+}
+
+.button:hover {
+    box-shadow: hsl(233, 39%, 37%) 0px 7px 29px 0px;
+}
