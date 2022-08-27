@@ -4,32 +4,30 @@ $hue: 233;
 $card-width: 15rem;
 
 .program-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+  .cards {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
     width: 100%;
-    overflow-y: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    transition: opacity 0.3s ease-in-out;
+  }
 
-    .cards {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        flex-direction: row;
-        flex-wrap: wrap;
-        transition: opacity 0.3s ease-in-out;
-    }
-
-    .load-more {
-        width: $card-width;
-        padding: 0.5rem 1rem;
-        text-align: center;
-        background-color: hsl($hue, 39%, 37%);
-        color: white;
-        font-size: medium;
-        font-weight: bold;
-        box-shadow: hsl($hue, 39%, 12%) 0px 7px 29px 0px;
-        margin: 1rem;
-    }
+  .load-more {
+    width: $card-width;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    background-color: hsl($hue, 39%, 37%);
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    box-shadow: hsl($hue, 39%, 12%) 0px 7px 29px 0px;
+    margin: 1rem;
+  }
 }
-

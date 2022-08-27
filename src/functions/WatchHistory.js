@@ -39,6 +39,7 @@ function OnFileInputChange(API_KEY, setPrograms, setProgress) {
         });
 
         reader.readAsText(file);
+        event.target.value = '';
     });
 }
 

@@ -1,82 +1,76 @@
 $hue: 233;
-$card-width: 15rem;
+$card-width: 21rem;
 
 .select {
-    position: relative;
-    margin: 0.2rem 0.5rem;
-    width: min-content;
+  position: relative;
+  margin: 0.2rem 0.5rem;
+  width: min-content;
 
-    .current {
-        width: $card-width;
-        padding: 0.5rem 1rem;
-        text-align: center;
-        background-color: hsl($hue, 39%, 37%);
-        color: white;
-        font-size: medium;
-        font-weight: bold;
-        box-shadow: hsl($hue, 39%, 12%) 0px 7px 29px 0px;
+  .current {
+    width: $card-width;
+    padding: 0.5rem 1rem;
+    text-align: center;
+    background-color: hsl($hue, 39%, 37%);
+    color: white;
+    font-size: medium;
+    font-weight: bold;
+    box-shadow: hsl($hue, 39%, 12%) 0px 7px 29px 0px;
+  }
+
+  .others {
+    display: none;
+    width: $card-width;
+
+    .other {
+      width: 100%;
+      padding: 0.5rem 1rem;
+      text-align: center;
+      background-color: hsl($hue, 39%, 42%);
+      color: white;
+      font-size: medium;
+      font-weight: bold;
+      outline: none;
+      border: none;
     }
 
-    .others {
-        display: none;
-        width: $card-width;
-
-        .other {
-            width: 100%;
-            padding: 0.5rem 1rem;
-            text-align: center;
-            background-color: hsl($hue, 39%, 42%);
-            color: white;
-            font-size: medium;
-            font-weight: bold;
-            outline: none;
-            border: none;
-        }
-
-        .other.selected {
-            background-color: hsl($hue, 39%, 47%);
-        }
-
-        .other:hover {
-            background-color: hsl($hue, 39%, 52%);
-        }
+    .other.selected {
+      background-color: hsl($hue, 39%, 47%);
     }
+
+    .other.open {
+      background-color: hsl($hue, 39%, 52%);
+    }
+  }
 }
 
-.select:hover {
-    .others {
-        position: absolute;
-        z-index: 10;
-    
-        bottom: 0;
-        left: 1rem;
-    
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        background-color: hsl($hue, 39%, 27%);
-        box-shadow: hsl($hue, 39%, 32%) 0px 7px 29px 0px;
+.select.open {
+  .others {
+    position: absolute;
+    z-index: 10;
 
-        animation: growDown 300ms ease-in-out forwards;
-        transform-origin: top center;
+    bottom: 0;
+    left: 0rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl($hue, 39%, 27%);
+    box-shadow: hsl($hue, 39%, 32%) 0px 7px 29px 0px;
+
+    animation: growDown 300ms ease-in-out forwards;
+    transform-origin: top center;
+  }
+
+  @keyframes growDown {
+    0% {
+      transform: translateY(100%) scaleY(0);
     }
-
-    @keyframes growDown {
-        0% {
-          transform: translateY(100%) scaleY(0);
-        }
-        80% {
-          transform: translateY(100%) scaleY(1.1);
-        }
-        100% {
-          transform: translateY(100%) scaleY(1);
-        }
-      }
+    80% {
+      transform: translateY(100%) scaleY(1.1);
+    }
+    100% {
+      transform: translateY(100%) scaleY(1);
+    }
+  }
 }
-
-
-
-
-
-

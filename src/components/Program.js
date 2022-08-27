@@ -71,11 +71,11 @@ function Program({ program, displayProgram, setDisplayProgram, programType }) {
         <div className="program-wrapper" style={{ display: displayProgram ? 'flex' : 'none' }} onClick={(e) => { setDisplayProgram(false); }}>
             <div style={{ width: '100%', position: 'relative', height: '100%' }}>
                 <div className="program" onClick={e => e.stopPropagation()}>
-                    <img className='backdrop' src={`${backdrop_base_url}${program.backdrop_path}`} alt={program.name}></img>
+                    {program.backdrop_path !== null && <img className='backdrop' src={`${backdrop_base_url}${program.backdrop_path}`} alt={program.name}></img>}
                     <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', zIndex: 1 }}>
                         {/* <img className='poster' src={`${poster_base_url}${program.poster_path}`} alt={program.name}></img> */}
                         <div style={{ margin: '0.0rem 0rem' }}>
-                            <h1 className='title'>{program.name}</h1>
+                            <h1 className='title'>{programType == 'tv' ? program.name : program.title}</h1>
                             <p>{program.overview}</p>
                             <div className='statistics'>
                                 {
