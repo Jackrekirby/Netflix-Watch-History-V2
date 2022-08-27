@@ -3,123 +3,122 @@ $card-width: 10rem;
 $card-height: calc($card-width * 1.5);
 
 .card {
+  position: relative;
+  width: $card-width;
+  box-shadow: hsl($hue, 39%, 17%) 0px 7px 29px 0px;
+  overflow: hidden;
+  margin: 0.5rem 0.5rem;
+  display: flex;
+  flex-direction: column;
+  // background-color: transparent;
+
+  img {
+    width: $card-width !important;
+    height: $card-height;
+    object-fit: cover;
+  }
+
+  .img {
     position: relative;
     width: $card-width;
-    box-shadow: hsl($hue, 39%, 17%) 0px 7px 29px 0px;
+    height: $card-height;
+    background-color: hsla($hue, 39%, 17%, 0.8);
+
+    p {
+      position: absolute;
+      top: -100%;
+      left: -100%;
+      width: 300%;
+      height: 300%;
+
+      color: rgba(255, 255, 255, 0.1);
+      font-size: 3rem;
+      font-weight: bold;
+      text-align: center;
+      transform: rotate(-45deg);
+    }
+  }
+
+  .id {
+    display: none;
+  }
+
+  .stat {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    padding: 0.5rem 1rem;
+    margin: 0.25rem;
+    border-radius: 0.5rem;
+    text-align: center;
+    background-color: hsla($hue, 39%, 37%, 0.8);
+    color: white;
+    font-size: small;
+    font-weight: bold;
+
+    white-space: nowrap;
     overflow: hidden;
-    margin: 0.5rem 0rem;
-    margin-right: 0.1rem;
-    display: flex;
-    flex-direction: column;
-    // background-color: transparent;
+    text-overflow: ellipsis;
+  }
 
-    img {
-        width: $card-width !important;
-        height: $card-height;
-        object-fit: cover;
+  .title {
+    width: 100%;
+    padding: 0.5rem 0.2rem;
+    text-align: center;
+    background-color: hsl($hue, 39%, 37%);
+    color: white;
+    font-size: small;
+    font-weight: bold;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    z-index: 1;
+  }
+
+  .info {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    background-color: hsl($hue, 39%, 37%);
+    color: white;
+    bottom: 0;
+    left: 0;
+    transform: translateY(calc($card-height + 1px));
+    transition: transform 0.3s ease-in-out;
+    max-height: 100%;
+    /* display: none; */
+
+    h1 {
+      padding: 0.5rem 0.5rem;
+      font-size: medium;
+      font-weight: bold;
+
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
 
-    .img {
-        position: relative;
-        width: $card-width;
-        height: $card-height;
-        background-color: hsla($hue, 39%, 17%, 0.8);
-        
-        p {
-            position: absolute;
-            top: -100%;
-            left: -100%;
-            width: 300%;
-            height: 300%;
+    p {
+      font-size: small;
+      font-weight: normal;
+      text-align: justify;
 
-            color: rgba(255, 255, 255, 0.1);
-            font-size: 3rem;
-            font-weight: bold;
-            text-align: center;
-            transform: rotate(-45deg);
-        }
+      padding: 0.5rem 1rem;
+      background-color: hsl($hue, 39%, 47%);
     }
-
-    .id {
-        display: none;
-    }
-    
-    .stat {
-        position: absolute;
-        top: 0;
-        right: 0;
-    
-        padding: 0.5rem 1rem;
-        margin: 0.25rem;
-        border-radius: 0.5rem;
-        text-align: center;
-        background-color: hsla($hue, 39%, 37%, 0.8);
-        color: white;
-        font-size: small;
-        font-weight: bold;
-    
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .title {
-        width: 100%;
-        padding: 0.5rem 0.2rem;
-        text-align: center;
-        background-color: hsl($hue, 39%, 37%);
-        color: white;
-        font-size: small;
-        font-weight: bold;
-    
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        z-index: 1;
-    }
-
-    .info {
-        position: absolute;
-        width: 100%;
-        text-align: center;
-        background-color: hsl($hue, 39%, 37%);
-        color: white;
-        bottom: 0;
-        left: 0;
-        transform: translateY(calc($card-height + 1px));
-        transition: transform 0.3s ease-in-out;
-        max-height: 100%;
-        /* display: none; */
-
-        h1 {
-            padding: 0.5rem 0.5rem;
-            font-size: medium;
-            font-weight: bold;
-        
-            white-space: nowrap;
-            overflow:hidden;
-            text-overflow: ellipsis;
-        }
-
-        p {
-            font-size: small;
-            font-weight: normal;
-            text-align: justify;
-        
-            padding: 0.5rem 1rem;
-            background-color: hsl($hue, 39%, 47%);
-        }
-    }
+  }
 }
 
 .card:hover {
-    box-shadow: hsl($hue, 39%, 32%) 0px 7px 29px 0px;
+  box-shadow: hsl($hue, 39%, 32%) 0px 7px 29px 0px;
 }
 
 .card:hover .info h1 {
-    white-space: normal;
-    overflow: hidden;
-    text-overflow: clip;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 // .card:hover .info {

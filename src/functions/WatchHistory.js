@@ -390,7 +390,7 @@ async function importWatchHistory(lines, API_KEY, setPrograms, setProgress) {
     const addTmdbObj = (name, program, predictedMediaType) => {
         const fmtTvWatchDate = (name, mediaType) => {
             const x = programDates[mediaType][name];
-            if (mediaType == 'tv') {
+            if (mediaType === 'tv') {
                 return { ...x, episodesWatched: numTvEpisodes[name] };
             } else {
                 return { firstWatched: x, lastWatched: x, episodesWatched: 1 };
@@ -430,7 +430,7 @@ async function importWatchHistory(lines, API_KEY, setPrograms, setProgress) {
         }
 
         searchedPrograms++;
-        console.log(searchedPrograms, totalPrograms)
+        // console.log(searchedPrograms, totalPrograms);
         setProgress(searchedPrograms / totalPrograms);
         // progressDom.innerText = `${searchedPrograms} / ${totalPrograms} : [${((searchedPrograms / totalPrograms) * 100).toFixed(2)} %]`;
     }

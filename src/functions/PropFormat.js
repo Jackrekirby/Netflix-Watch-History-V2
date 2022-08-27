@@ -30,7 +30,7 @@ const order = {
     date_watched: (x, data) => -Math.floor(x / 1e5),
     episodesWatched: (x, data) => -x,
     percentComplete: (_, data) => {
-        if (data['episodesWatched'] == 0 || data['number_of_episodes'] == 0) {
+        if (data['episodesWatched'] === 0 || data['number_of_episodes'] === 0) {
             return 0;
         } else {
             return -Math.floor((data['episodesWatched'] / data['number_of_episodes']) * 10000);
@@ -48,7 +48,7 @@ const order = {
 };
 
 const orderDate = (date) => {
-    if (date.length == 10) {
+    if (date.length === 10) {
         return -(new Date(date).getTime() / 1e5);
     } else {
         return 2147483647;
@@ -56,7 +56,7 @@ const orderDate = (date) => {
 }
 
 const fmtDate = (date) => {
-    if (date.length == 10) {
+    if (date.length === 10) {
         return `${months[Number(date.slice(5, 7)) - 1]} ${date.slice(0, 4)}`;
     } else {
         return 'Unknown';
@@ -100,7 +100,7 @@ const display = {
     },
     episodesWatched: (x, data) => x,
     percentComplete: (_, data) => {
-        if (data['episodesWatched'] == 0 || data['number_of_episodes'] == 0) {
+        if (data['episodesWatched'] === 0 || data['number_of_episodes'] === 0) {
             return `0 %`;
         } else {
             return `${Math.min(Math.floor(data['episodesWatched'] / data['number_of_episodes'] * 100), 100)} %`;

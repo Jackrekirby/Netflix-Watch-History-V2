@@ -8,7 +8,7 @@ function Card({ program, programType, statProperty, setProgramId, setDisplayProg
     const stat = PropFormat.display[statProperty](rawStat, program);
     const order = PropFormat.order[statProperty](rawStat, program);
 
-    const name = programType == 'tv' ? program.name : program.title;
+    const name = programType === 'tv' ? program.name : program.title;
     return (
         <div className="card" style={{ order: order }}
             onClick={() => { setProgramId(program.id); setDisplayProgram(true); }}>

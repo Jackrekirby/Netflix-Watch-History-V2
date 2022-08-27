@@ -4,33 +4,33 @@ import SortBy from './SortBy';
 import Program from './Program';
 import Select from './Select';
 
-import * as WatchHistory from '../functions/WatchHistory';
+// import * as WatchHistory from '../functions/WatchHistory';
 
 import { useState, useEffect } from 'react';
 // import FileSelecter from './FileSelecter';
 
 const API_KEY = '217696a2035b05a4f4f63471fb9c7c41';
 
-const pagesLoaded = [];
-async function getTrending(pageNumber, programs, setPrograms) {
-  const newPrograms = {};
-  if (!pagesLoaded.includes(pageNumber)) {
-    pagesLoaded.push(pageNumber);
+// const pagesLoaded = [];
+// async function getTrending(pageNumber, programs, setPrograms) {
+//   const newPrograms = {};
+//   if (!pagesLoaded.includes(pageNumber)) {
+//     pagesLoaded.push(pageNumber);
 
-    const resp = await fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}&page=${pageNumber}`);
-    const json = await resp.json();
-    console.log('getTrending', json);
+//     const resp = await fetch(`https://api.themoviedb.org/3/trending/tv/week?api_key=${API_KEY}&page=${pageNumber}`);
+//     const json = await resp.json();
+//     console.log('getTrending', json);
 
-    for (const item of json.results) {
-      const resp2 = await fetch(`https://api.themoviedb.org/3/tv/${item.id}?api_key=${API_KEY}`);
-      const json2 = await resp2.json();
-      newPrograms[item.id] = json2;
-    }
-    console.log('programs', newPrograms);
-    setPrograms({ ...programs, ...newPrograms });
-    // setProgramId(Object.keys(programs)[0]);
-  }
-}
+//     for (const item of json.results) {
+//       const resp2 = await fetch(`https://api.themoviedb.org/3/tv/${item.id}?api_key=${API_KEY}`);
+//       const json2 = await resp2.json();
+//       newPrograms[item.id] = json2;
+//     }
+//     console.log('programs', newPrograms);
+//     setPrograms({ ...programs, ...newPrograms });
+//     // setProgramId(Object.keys(programs)[0]);
+//   }
+// }
 
 async function getTvPrograms(tvIds, setTvPrograms) {
   const programs = {};
@@ -107,7 +107,7 @@ function ProgramApp({ netflixPrograms }) {
 
   useEffect(() => {
     setDisplayProgram(false);
-    if (programType == 'tv') {
+    if (programType === 'tv') {
       setStatProperty('lastWatched');
     } else {
       setStatProperty('release_date');
@@ -116,7 +116,7 @@ function ProgramApp({ netflixPrograms }) {
   }, [programType]);
 
   useEffect(() => {
-    if (netflixPrograms != undefined) {
+    if (netflixPrograms !== undefined) {
       console.log('NETFLIX', netflixPrograms);
       getTvPrograms(netflixPrograms.tv, setTvPrograms);
       getFilmPrograms(netflixPrograms.movie, setFilmPrograms);
@@ -124,7 +124,7 @@ function ProgramApp({ netflixPrograms }) {
   }, [netflixPrograms]);
 
   useEffect(() => {
-    if (programType == 'tv') {
+    if (programType === 'tv') {
       setPrograms(tvPrograms);
     } else {
       setPrograms(filmPrograms);
@@ -150,7 +150,7 @@ function ProgramApp({ netflixPrograms }) {
       {programs && <div className="cards">
         {
           Object.values(programs).map((program, i) => {
-            const stat = program[statProperty];
+            // const stat = program[statProperty];
             return <Card key={program.id} programType={programType} program={program} statProperty={statProperty} setProgramId={setProgramId} setDisplayProgram={setDisplayProgram}></Card>
           })
         }

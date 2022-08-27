@@ -1,0 +1,23 @@
+.whe-logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 3rem;
+    transition: width 1s ease-in-out;
+  
+    p {
+      overflow: hidden;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+}
+  
+.whe-logo.open {
+width: 13.7rem;
+}
+
+.whe-logo.open p {
+opacity: 1;
+}

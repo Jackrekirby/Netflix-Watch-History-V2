@@ -2,22 +2,22 @@ import { useEffect, useState } from 'react';
 import * as PropFormat from '../functions/PropFormat';
 import './Program.scss';
 
-function debounce(fn, ms) {
-    let timer
-    return _ => {
-        clearTimeout(timer)
-        timer = setTimeout(_ => {
-            timer = null
-            fn.apply(this, arguments)
-        }, ms)
-    };
-}
+// function debounce(fn, ms) {
+//     let timer
+//     return _ => {
+//         clearTimeout(timer)
+//         timer = setTimeout(_ => {
+//             timer = null
+//             fn.apply(this, arguments)
+//         }, ms)
+//     };
+// }
 
 function convertRemToPixels(rem) {
     return rem * parseFloat(getComputedStyle(document.documentElement).fontSize);
 }
 
-const poster_base_url = 'https://image.tmdb.org/t/p/w500/';
+// const poster_base_url = 'https://image.tmdb.org/t/p/w500/';
 const backdrop_base_url = 'https://image.tmdb.org/t/p/w1280/';
 
 function Statistic({ name, value }) {
@@ -53,7 +53,7 @@ function Program({ program, displayProgram, setDisplayProgram, programType }) {
     useEffect(() => {
         const handleResize = () => {
             const newWidth = fmtWidth(window.innerWidth);
-            if (newWidth != width) setWidth(newWidth);
+            if (newWidth !== width) setWidth(newWidth);
         };
 
         window.addEventListener('resize', handleResize)

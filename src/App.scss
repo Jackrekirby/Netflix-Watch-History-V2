@@ -1,278 +1,161 @@
 .app {
   display: flex;
-  height: 100%;
-  width: 100%;
-  
-  .horizontal-panels {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-
-    .vertical-panels {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      height: 100%;
-      width: 100%;
-      transition: height 1s ease-in-out;
-      overflow: hidden;
-    
-      .panel {
-        // border: 1px solid white;
-        width: 100%;
-        height: 100%;
-    
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-    
-        overflow: hidden;
-        
-        flex-grow: 1;
-        transition: width 1s ease-in-out, opacity 1s ease-in-out;
-    
-        img {
-          width: 50%;
-          animation-name: fadein;
-          animation-duration: 1.5s;
-        }
-      }
-    
-      .panel.netflix {
-        background-color: black;
-      }
-    
-      .panel.tmdb {
-        background-color: rgb(13, 37, 63);
-      }
-
-      .panel.whe {
-        box-sizing: border-box;
-        position: relative;
-        color: white;
-        padding: 1rem;
-        background-color: hsl(233, 39%, 22%);
-
-        h1 {
-          font-size: xx-large;
-        }
-
-        .cover {
-          position: absolute;
-          top: 0;
-          left: 0;
-          right: 0;
-          bottom: 0;
-          background-color: hsl(233, 39%, 22%);
-          transition: opacity 1s ease-in-out;
-        }
-
-        .summary {
-          position: absolute;
-          top: 75%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: min(calc(100% - 2rem), 20rem);
-
-          font-weight: normal;
-          font-size: medium;
-          text-align: center;
-          overflow: hidden;
-
-          transition: opacity 1s ease-in-out;
-          box-shadow: hsl(233, 39%, 17%) 0px 7px 29px 0px;
-
-          .rect {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            
-            
-            background-color: hsl(233, 39%, 37%);
-            width: 200%;
-            height: 50%;
-            z-index: -1;
-
-            // transform: translate(-50%, -50%);
-
-            animation-name: rotater;
-            animation-duration: 2s;
-            animation-iteration-count: infinite;
-            transform-origin: center;
-            animation-timing-function: linear;
-          }
-
-          @keyframes rotater {
-            // from {top: 0%; left: 0%;}
-            // 45% {top: 0%; left: 100%;}
-            // 55% {top: 100%; left: 100%;}
-            // 95% {top: 100%; left: 0%;}
-            // to {top: 0%; left: 0%;}
-            from {transform: translate(-50%, -50%) rotate(0deg);}
-            45% {transform: translate(-50%, -50%) rotate(70deg);}
-            55% {transform: translate(-50%, -50%) rotate(110deg);}
-            to {transform: translate(-50%, -50%) rotate(180deg);}
-          }
-
-          p {
-            padding: 0.5rem;
-            background-color: hsl(233, 39%, 27%);
-            margin: 2px;
-          }
-        }
-
-        .summary:hover {
-          box-shadow: hsl(233, 39%, 37%) 0px 7px 29px 0px;
-        }
-
-        .credits {
-          position: absolute;
-          bottom: 0%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          width: 80%;
-
-          font-weight:light;
-          font-size: x-small;
-          font-style: italic;
-          text-align: center;
-
-          transition: opacity 1s ease-in-out;
-        }
-      }
-    
-      @keyframes fadein {
-        from {opacity: 0;}
-        50% {opacity: 0;}
-        to {opacity: 1;}
-      }
-    }
-  }
-  
-}
-
-.whe-logo {
-  display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 3rem;
-  transition: width 1s ease-in-out;
 
-  p {
-    overflow: hidden;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-  }
-
-  h1 {
-    flex-grow: 100000;
-
-  }
-}
-
-.whe-logo.open {
-  width: 13.7rem;
-}
-
-.whe-logo.open p {
-  opacity: 1;
-}
-
-.steps.show {
-  transition: opacity 1s ease-in-out, height 1s ease-in-out;
-
-  // animation-name: fadeinkeep;
-  // animation-duration: 1s;
-  // animation-timing-function: ease-in-out;
-  // animation-fill-mode: forwards;
-  // animation-delay: 0s;
-}
-
-// @keyframes fadeinkeep {
-//   from {opacity: 0; display: none;}
-//   to {opacity: 1; display: inherit;}
-// }
-
-// .steps.hide {
-//   transition: opacity 1s ease-in-out;
-
-//   animation-name: fadeoutkeep;
-//   animation-duration: 1s;
-//   animation-timing-function: ease-in-out;
-//   animation-fill-mode: forwards;
-//   animation-delay: 0s;
-// }
-
-// @keyframes fadeoutkeep {
-//   from {opacity: 1; display: inherit;}
-//   to {opacity: 0; display: none;}
-// }
-
-.step {
   width: 100%;
   height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: stretch;
-  // margin: 1rem;
-  background-color: hsl(233, 39%, 27%);
-  box-shadow: hsl(233, 39%, 17%) 0px 7px 29px 0px;
 
-
-  p.number {
+  .whe-panel {
+    background-color: hsl(233, 39%, 22%);
+    color: white;
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
-    min-width: 3rem;
-    min-height: 100%;
-    font-weight: bold;
-    font-size: xx-large;
-    background-color: hsl(233, 39%, 37%);
-  }
+    .steps {
+      width: 100%;
+      height: fit-content;
+      overflow: hidden;
 
-  p.description {
-    // margin: 0.5rem;
-    padding: 0.5rem;
-    flex-grow: 1;
-
-    a {
-      color: white;
-      // font-weight: bold;
-      text-decoration: none;
+      .button {
+        width: calc(100% - 2rem);
+        margin: 0.5rem;
+      }
     }
-  } 
-}
 
-.file-bin {
-  $f: hsl(233, 39%, 27%);
-  $b: hsl(233, 39%, 57%);
-
-  width: calc(100% - 2rem);
-  height: 10rem;
-  border: 5px solid $f;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  background-color: $b;
-  background: repeating-linear-gradient( -45deg, $f, $f 20px, $b 20px, $b 25px );
-  box-shadow: hsl(233, 39%, 17%) 0px 7px 29px 0px;
-
-  p {
-    padding: 0.5rem;
-    background-color: $f;
+    > .foreground {
+      height: 100%;
+      width: 100%;
+    }
   }
-}
 
-.file-bin:hover {
-  border-width: 10px;
+  .netflix-panel {
+    background-color: black;
+    color: white;
+  }
+
+  .tmdb-panel {
+    background-color: rgb(13, 37, 63);
+    color: white;
+  }
+
+  .flex-row {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+  }
+
+  .flex-col {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+  }
+
+  button {
+    outline: none;
+    border: 1px solid black;
+    color: black;
+    background-color: white;
+    padding: 0.5rem;
+  }
+
+  .anim-div.summary {
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 16rem;
+    height: fit-content;
+
+    .inner {
+      padding: 0.5rem;
+    }
+  }
+
+  .foreground.expand {
+    width: 100%;
+    height: 100%;
+  }
+
+  .credits {
+    position: absolute;
+    bottom: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+
+    font-weight: light;
+    font-size: x-small;
+    font-style: italic;
+    text-align: center;
+
+    transition: opacity 1s ease-in-out;
+  }
+
+  .logo50 {
+    width: 50%;
+  }
+
+  .step {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: stretch;
+    // margin: 1rem;
+    background-color: hsla(233, 39%, 27%, 0);
+    box-shadow: hsl(233, 39%, 17%) 0px 7px 29px 0px;
+
+    p.number {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      min-width: 3rem;
+      min-height: 100%;
+      font-weight: bold;
+      font-size: xx-large;
+      background-color: hsl(233, 39%, 37%, 0.85);
+    }
+
+    p.description {
+      // margin: 0.5rem;
+      padding: 0.5rem;
+      flex-grow: 1;
+
+      a {
+        color: white;
+        // font-weight: bold;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .program-anim {
+    width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    // display: none;
+  }
 }

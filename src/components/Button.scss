@@ -2,8 +2,6 @@
 
 .button {
     box-sizing: border-box;
-    width: 100%;
-    margin: 1rem 0rem;
 
     position: relative;
     font-weight: normal;
@@ -23,15 +21,21 @@
 
     .border {
       position: absolute;
-      top: 50%;
-      left: 50%;
+      top: -50%;
+      left: -50%;
       
       background-color: hsl(233, 39%, 37%);
-      width: 200%;
+      width: 100%;
       height: 50%;
 
+      // transform: rotate(-45deg);
+
+      transform: translate(-50%, -50%) rotate(-45deg);
+
+      transition: width 1s ease-in-out, height 1s ease-in-out;
+
       animation-name: rotater;
-      animation-duration: 2s;
+      animation-duration: 5s;
       animation-iteration-count: infinite;
       transform-origin: center;
       animation-timing-function: linear;
@@ -46,19 +50,25 @@
 
         // padding: 0.5rem;
         box-sizing: border-box;
-        margin: 2px;
+        margin: 1px;
         height: 100%;
         width: calc(100% - 4px);
         flex-grow: 1;
-        background-color: hsl(233, 39%, 27%);
+        background-color: hsla(233, 39%, 27%, 0.85);
         cursor: pointer;
     }
 
     @keyframes rotater {
-      from {transform: translate(-50%, -50%) rotate(0deg);}
-      45% {transform: translate(-50%, -50%) rotate(70deg);}
-      55% {transform: translate(-50%, -50%) rotate(110deg);}
-      to {transform: translate(-50%, -50%) rotate(180deg);}
+      from {top: 0%; left: 0%};
+      // from {transform: translate(0%, -50%) rotate(0deg);}
+      // 10% {transform: translate(0%, 0%) rotate(10deg);}
+
+      // 40% {transform: translate(0%, 0%) rotate(170deg);}
+      // 60% {transform: translate(0%, 0%) rotate(190deg);}
+
+      // 90% {transform: translate(0%, 0%) rotate(350deg);}
+      30% {top: 150%; left: 150%}
+      to {top: 150%; left: 150%}
     }
 }
 
